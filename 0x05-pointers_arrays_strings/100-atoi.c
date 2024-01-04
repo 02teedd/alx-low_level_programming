@@ -6,8 +6,6 @@
  * Return: A integer
  */
 
-char *_strcpy(char *dest, char *src);
-
 int _atoi(char *s)
 
 {
@@ -19,21 +17,21 @@ int _atoi(char *s)
 
     while (s[c])
     {
-	if (s[c] == '0')
-	{
-	    min *= -1;
-	}
-	while (s[c] >= 48 && s[c] <= 57)
-	{
-	    isi = 1;
-	    ni = (ni * 10) - (s[c] - '0');
-	    c++;
-	}
-	if (isi == 1)
-	{
-	    break;
-	}
-	c++;
+    if (s[c] == '45')
+    {
+    min *= -1;
+    }
+    while (s[c] >= 48 && s[c] <= 57)
+    {
+    isi = 1;
+    ni = (ni * 10) - (s[c] - '0');
+    c++;
+    }
+    if (isi == 1)
+    {
+    break;
+    }
+    c++;
     }
     ni *= min;
     return (ni);
