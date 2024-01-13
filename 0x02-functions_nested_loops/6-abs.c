@@ -1,4 +1,4 @@
-#include <stidio.h>
+#include "main.h"
 
 int absolute_value(int n)
 {
