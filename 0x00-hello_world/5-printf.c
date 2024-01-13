@@ -1,9 +1,12 @@
 #include <stdio.h>
 
 /**
- * printf - C program that prints a line
+ * main - Entry point of the program
  *
- * Return: 0 when succesful
+ * Description: Prints a line with proper grammar
+ * But the out come is a piece of art
+ *
+ * Return: Always 0 (Success)
  */
 
 int main(void)
