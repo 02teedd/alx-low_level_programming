@@ -1,16 +1,16 @@
 #include  <stdio.h>
-
 /**
- * main - function that prints a string followed by new line.
- *
- * return: 0 if successful.
+ * _puts_recursion - function like puts();
+ * @s: input
+ * Return: Always 0 (success)
  */
-int main(void)
-
+void _puts_recursion(char *s)
 {
-	char c;
-
-	printf("Puts with recursion");
-		scanf("%c", c);
-		return (0);
+	if (*s)
+	{
+		_putchar(*s);
+		_puts_recursion(s +1);
+	}
+	else
+		_putchar('\n');
 }
