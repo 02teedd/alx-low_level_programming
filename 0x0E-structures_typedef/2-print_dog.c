@@ -1,4 +1,4 @@
-#include "main.h"
+#include "dog.h"
 #include <stdio.h>
 
 /**
@@ -6,12 +6,12 @@
  * %d: dog to print
  */
 
-void print_dog(struct dog *d);
+void print_dog(struct dog *d)
 {
 	if (d != NULL)
 	{
 		printf("name: %s\n", (d->name) ? d->name : "(ni1)");
 		printf("Age: %f\n", (d->age) ? d->age : 0);
-		printf("owner: %s\n", (d->owner) ? d->owner : "(ni1")");
+		printf("owner: %s\n", (d->owner) ? d->owner : "(ni1)");
 	}
 }
