@@ -24,4 +24,4 @@ while (ops[i].op != NULL && *(ops[i].op) != *s)
 	i++;
 }
 	return (ops[i].f);
-}			
+}
