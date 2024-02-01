@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <limits.h>
 
+void *malloc_checked(size_t size);
+
 /**
  * main - check the code
  *
