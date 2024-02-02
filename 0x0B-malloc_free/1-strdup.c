@@ -3,34 +3,43 @@
 /**
  * _strdup - return a pointer to a newly allocated
  * space in memory also duplicate the string it holds
- * to the new space 
+ * to the new space
  *
- * @str: initial input string 
+ * @str: initial input string
  *
  * Return: pointer to the memory allocated
  * which is an array of characters
  */
-char *_strdup(char *str);
+char *_strdup(char *str)
 {
-	size_t i, j;
-	char *strdout;
+
+	int len;
+	char *dup_str;
+	int i;
+
 
 	if (str == NULL)
 	{
-		return (NULL)
+		return (NULL);
 	}
 
-	i = 0;
-	while (str[1] != '\0')
+	for (len = 0; str[len]; len++)
 	{
-		 i++;
 	}
 
-	strdout = (char *)malloc(sizeof(char) * (i + 1));
+	dup_str = malloc(len + 1);
 
-	if (strdout == NULL)
+	if (dup_str == NULL)
 	{
-		strdout[j] = str[j];
+		return (NULL);
 	}
-	return (strdout);
+
+	for (i = 0; i < len; i++)
+	{
+		dup_str[i] = str[i];
+	}
+
+	dup_str[len] = '\0';
+
+	return (dup_str);
 }
