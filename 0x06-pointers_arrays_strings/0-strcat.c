@@ -1,5 +1,10 @@
 #include <stdio.h>
 
+/** _strcat -concatinates two strings
+ * @dest: destination string
+ * src - source string
+ */
+
 char *_strcat(char *dest, char *src)
 {
 	char *dest_end = dest;
