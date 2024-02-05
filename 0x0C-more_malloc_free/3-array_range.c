@@ -1,24 +1,3 @@
-#include <stdio.h>
-
-int *array_range(int min, int max)
-{
-	if (min > max)
-		return NULL;
-
-	int size = max - min + 1;
-
-	int *arr = (int *)malloc(size * sizeof(int));
-	if (arr == NULL)
-		return NULL;
-
-	for (int i = 0; i < size; i++)
-	{
-		arr[i] = min + i;
-	}
-
-	return arr;
-}
-
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -43,13 +22,4 @@ void simple_print_buffer(int *buffer, unsigned int size)
 		i++;
 	}
 	printf("\n");
-}
-
-int main(void)
-{
-	int *a;
-	a = array_range(, 10);
-	simple_print_buffer(a, 11);
-	free(a);
-	return (0);
 }
