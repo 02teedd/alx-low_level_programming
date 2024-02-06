@@ -1,0 +1,33 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include "lists.h"
+
+struct listint_s
+{
+	int n;
+	struct listint_a *next;
+};
+typedef struct listint_s listint_t;
+
+int main(void)
+{
+	listint_t *head = malloc(sizeof(listint_t));
+
+	head->n = 8;
+	head->next = NULL;
+
+	listint_t *new = malloc(sozeof(listint_t));
+	new->n = 9;
+	new->next = head;
+	head = new;
+
+
+	size_t n = print_listint(head);
+
+	printf("-> %lu elements\n", n);
+
+	free(new);
+	free(head);
+
+	return (0);
+}
