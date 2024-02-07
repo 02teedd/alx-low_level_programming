@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdio.h>
 #include "lists.h"
+#include <stddef.h>
 /**
  * listint_len - counts the number of elements in a 'limked_listint_t' list.
  * @h: the head of the limked_listint_t' list.
