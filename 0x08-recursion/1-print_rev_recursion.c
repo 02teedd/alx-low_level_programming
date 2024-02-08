@@ -6,8 +6,12 @@
  *
  * Description:
  * This function recursively prints a given string in reverse order.
- * the base case is when the string pointer reachs the null terminator.
- * otherwise, the function prints the last character, then recursively calls itself with a pointer to a substring excluding the last character.
+ * The base case is when the string pointer reachs the null terminator.
+ * Otherwise, the function prints the last character, then recursively calls
+ * itself with a pointer to a substring excluding the last character.
+ *
+ * Example:
+ * _print_rev_recursion("hello");
  */
 void _print_rev_recursion(const char *str)
 
