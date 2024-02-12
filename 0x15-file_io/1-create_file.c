@@ -1,10 +1,15 @@
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/stat.h>
 
 /**
  * create_file - create and write into a file
  * and copy content in it
  * @filename: the filename to be created
- * @text_context: the content to be copied into the file
+ * @text_content: the content to be copied into the file
  * Return: 1 if successfull or -1 if failed
  */
 int create_file(const char *filename, char *text_content)
@@ -21,7 +26,7 @@ int create_file(const char *filename, char *text_content)
 	if (fd == -1)
 		return (-1);
 
-	if (!text_content)
+	if (text_content != NULL)
 		text_content = "";
 
 	for (nletters = 0; text_content[nletters]; nletters++)
