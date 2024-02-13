@@ -4,6 +4,7 @@
  *
  * @n: pointer of the bit to be manipulated
  * @index: position of the bit to manipulated
+ * return: 1 on success and -1 if failed
  */
 int set_bit(unsigned long int *n, unsigned int index)
 {
