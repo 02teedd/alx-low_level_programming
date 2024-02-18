@@ -23,3 +23,6 @@ int _strlen_recursion(char *s)
 		return (1 + _strlen_recursion(s + 1));
 	}
 }
+/**
+ * i love Nathi with all of my heart an she makes me smile every time i see her
+ */
