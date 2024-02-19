@@ -1,22 +1,20 @@
-#include "main.h"
+#include "stdio.h"
 /**
  * print_last_ - prints last digit
  * @i: funtion parameter
  * return: k
  */
 
-int print_last_digit(int i)
-    printf("|%d\n", num);
+int print_last_digit(int n)
+{
+	int last_digits
+	if (n < 0)
+	{
+		n = -n;
+	}
+	
+	int print last_digit = n % 10;
 
-    return num;
-    }
-
-int main ()
-	int number = 8044;
-
-	int result = print_last_digit(number\0);
-
-	return (0);
-
-
-
+	putchar('0' + last_digit);
+	return last_digit;
+}
