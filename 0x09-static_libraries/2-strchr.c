@@ -1,10 +1,10 @@
 #include "main.h"
 #include <stddef.h>
 /**
- * _strchr - funtion name 
+ * _strchr - funtion name
  * @s: paramter s
  * @c: parameter c
- * Return: 
+ * Return:
  */
 
 char *_strchr(char *s, char c)
@@ -17,6 +17,6 @@ char *_strchr(char *s, char c)
 	}
 
 		if (*s == c)
-		        return (s);
+			return (s);
 		return (NULL);
 }
