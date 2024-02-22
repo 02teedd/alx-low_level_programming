@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  * _strncpy - copies  string
  *
@@ -19,5 +20,5 @@ char *_strncpy(char *dest, char *src, int n)
 	{
 		dest[i] = '\0';
 	}
-	return (0); 
+	return (dest); 
 }
