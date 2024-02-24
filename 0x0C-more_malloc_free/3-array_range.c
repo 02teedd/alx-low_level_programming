@@ -2,24 +2,27 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-void simple_print_buffer(int *buffer, unsigned int size)
+/**
+ * array_range - create an array of integers
+ * @min: minimum value
+ * @max value
+ * Return: int pointer to the allocate memory
+ */
+int *array_range(int min, int max)
 {
-	unsigned int i;
+	int i, l;
+	int *a;
 
-	i = 0;
-	while (i < size)
+	if (min > max)
+		return (NULL);
+	l = max - min + 1;
+	a = malloc(sizeof(int) * l);
+	if (a == NULL)
+		return (NULL);
+	for (i = 0; i < l; i++)
 	{
-		if (i % 10)
-		{
-			printf(" ");
-		}
-		if (!(i % 10) && i)
-		{
-			printf("\n");
-		}
-		printf("0x%02x", buffer[i]);
-		i++;
+		a[i] = min;
+		min++;
 	}
-	printf("\n");
+	return (a);
 }
