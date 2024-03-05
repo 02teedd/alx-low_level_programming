@@ -4,14 +4,15 @@
 /**
  * free_dog - frees dogs
  * @d: The dog to be freed.
+ *
+ * Return: void.
  */
 
-void free_dog(dog_t *dog)
+void free_dog(dog_t *d)
 {
-    if (dog == NULL)
+    if (d == 0)
 	    return;
-
-    free(dog->name);
-    free(dog->owner);
-    free(dog);
+    free(d->name);
+    free(d->owner);
+    free(d);
 }
