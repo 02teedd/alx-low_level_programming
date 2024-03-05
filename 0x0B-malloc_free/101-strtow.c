@@ -1,134 +1,76 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
-
-int count_words(char *str);
-char *get_next_word(char *str);
-char **allocate_memory(int num_words);
-void free_memory(char **words);
-
 /**
- * strtow - Splits a string into words
- * @str: the string to split
+ * wordnos - counts number of words in a given string
+ * @s: pointer to the sstring (int)
  *
- * Return: pointer to an array of strings (words)
+ * Return: No. of words int the string (int)
+ */
+int wordnos(char *s)
+{
+	int flag, c, w;
+
+	flag = 0;
+	w = 0;
+
+	for (c = 0; s[c] != '\0'; c++)
+	{
+		if (s[c] == ' ')
+			flag = 0;
+		else if (flag == 0)
+		{
+			flag = 1;
+			w++;
+		}
+	}
+
+	return (w);
+}
+/**
+ * **strtow - splits a string into words
+ * @str: string to split
+ *
+ * Return: pointer to an array of strings (success)
+ * or NULL (Error)
  */
 char **strtow(char *str)
 {
-	int i = 0, num_words = 0;
-	char **words;
+	char **matrix, *tmp;
+	int i, k = 0, len = 0, words, c = 0, start, end;
 
-	if (str == NULL || *str == '\0')
+	while (*(str + len))
+		len++;
+	words = wordnos(str);
+	if (words == 0)
 		return (NULL);
 
-	num_words = count_words(str);
-	words = allocate_memory(num_words);
-	if (words == NULL)
+	matrix = (char **) malloc(sizeof(char *) * (words + 1));
+	if (matrix == NULL)
 		return (NULL);
 
-	while (*str)
+	for (i = 0; i <= len; i++)
 	{
-		if (*str != ' ')
+		if (str[i] == ' ' || str[i] == '\0')
 		{
-			words[i++] = get_next_word(str);
-			if (words[i - 1] == NULL)
+			if (c)
 			{
-				free_memory(words);
-				return (NULL);
+				end = i;
+				tmp = (char *) malloc(sizeof(char) * (c + 1));
+				if (tmp == NULL)
+					return (NULL);
+				while (start < end)
+					*tmp++ = str[start++];
+				*tmp = '\0';
+				matrix[k] = tmp - c;
+				k++;
+				c = 0;
 			}
-			str += sizeof(char) * (strlen(words[i - 1]) + 1);
 		}
-		else
-		{
-			str++;
-		}
-	}
-	words[i] = NULL;
-	return (words);
-}
-
-/**
- * count_words - counts the number of words in a string
- * @str: The string to count words in 
- *
- * Return: the number of words
- */
-int count_words(char *str)
-{
-	int count = 0, in_word = 0;
-
-	while (*str)
-	{
-		if (*str != ' ' && !in_word)
-		{
-			in_word = 1;
-			count++;
-		}
-		else if (*str == ' ')
-		{
-			in_word = 0;
-		}
-		str++;
-	}
-	return (count);
-}
-
-/**
- * get_next_word - Extracts the next word from a string
- * @str: The string to extract the word from
- *
- * Return: pointer to the extracted word
- */
-char *get_next_word(char *str)
-{
-	int word_len = 0;
-	char *word, *start = str;
-
-	while (*str && *str != ' ')
-	{
-		word_len++;
-		str++;
+		else if (c++ == 0)
+			start = i;
 	}
 
-	word = malloc(sizeof(char) * (word_len + 1));
-	if (word == NULL)
-		return (NULL);
+	matrix[k] = NULL;
 
-	strncpy(word, start, word_len);
-	word[word_len] = '\0';
-
-	return (word);
-}
-
-/**
- * allocate_memory - Allocate memory for an array of strings
- * @num_words: the number of words in the array
- * 
- * Return: pointer to the allocated memory
- */
-char **allocate_memory(int num_words)
-{
-	char **words = malloc(sizeof(char *) * (num_words + 1));
-
-	if (words == NULL)
-		return (NULL);
-
-	return (words);
-}
-
-/**
- * free_memory - frees memory allocated for an array of strings
- * @words: the array of strings to free
- *
- * Return: nothing
- */
-void free_memory(char **words)
-{
-	int i;
-
-	for (i = 0; words[i] != NULL; i++)
-	{
-		free(words[i]);
-	}
-	free(words);
+	return (matrix);
 }
