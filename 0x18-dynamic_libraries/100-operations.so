@@ -1,0 +1,8 @@
+from ctypes import CDLL
+
+lib = CDLL("./my_c_functions.so")
+lib.square.argtypes = [int]
+lib.square.restype = int
+
+result = lib.square(5)
+print(result)
