@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdio.h>
 #include "lists.h"
+size_t free_listint_safe(listint_t **h);
 
 /**
  * main - check the code
